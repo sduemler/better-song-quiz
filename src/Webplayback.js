@@ -126,8 +126,8 @@ function WebPlayback(props) {
                 &gt;&gt;
               </button>
             </div>
-          </div>
           <div>{/* insert playlist info here */}</div>
+          </div>
         </div>
       </>
     );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WebPlayback from './Webplayback';
 import Login from './Login';
+import Header from './Header';
 import './App.css';
 
 function App() {
@@ -16,7 +17,13 @@ function App() {
     getToken();
   }, []);
 
-  return <>{token === '' ? <Login /> : <WebPlayback token={token} />}</>;
+  return <>
+    <div>
+      <Header />
+      {token === '' ? <Login /> : <WebPlayback token={token} />}
+    </div>
+  
+  </>;
 }
 
 export default App;
