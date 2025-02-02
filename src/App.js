@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WebPlayback from './Webplayback';
 import Login from './Login';
 import Header from './Header';
+import Playlists from './Playlists';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <div>
       <Header />
       {token === '' ? <Login /> : <WebPlayback token={token} />}
+      <Playlists playlistId={"69KEyW3VCrxRi8iJhl2t2g"} token={token} />
     </div>
   
   </>;

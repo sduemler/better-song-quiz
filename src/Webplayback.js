@@ -8,18 +8,6 @@ const track = {
   artists: [{ name: '' }],
 };
 
-async function fetchProfile(token) {
-  const result = await fetch(
-    'https://api.spotify.com/v1/playlists/37i9dQZF1DXaKIA8E7WcJj',
-    {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${token}` },
-    }
-  );
-
-  return await result.json();
-}
-
 function WebPlayback(props) {
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
@@ -31,8 +19,8 @@ function WebPlayback(props) {
     script.src = 'https://sdk.scdn.co/spotify-player.js';
     script.async = true;
 
-    const profile = fetchProfile(props.token);
-    console.log(profile);
+    // const profile = fetchProfile(props.token);
+    // console.log(profile);
 
     document.body.appendChild(script);
 
@@ -126,7 +114,6 @@ function WebPlayback(props) {
                 &gt;&gt;
               </button>
             </div>
-          <div>{/* insert playlist info here */}</div>
           </div>
         </div>
       </>
