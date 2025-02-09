@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import WebPlayback from './Webplayback';
 
 
 const PlaylistCard = (props) => {
     const [tracks, setTracks] = useState([]);
     const [trackNumber, setTrackNumber] = useState(-1)
-    let trackInfo = "";
 
     const fetchPlaylist = async () => {
         try {
@@ -34,6 +34,7 @@ const PlaylistCard = (props) => {
             onClick={handleClick}
             style={{ width: "300px", height: "300px"}}/>
             {(tracks[trackNumber] === undefined) ? <p>Track loading...</p> : <p>{tracks[trackNumber].track.name}</p>}
+            {(tracks[trackNumber] === undefined) ? <p>Finding track to play...</p> : <WebPlayback token={props.token} track={tracks[trackNumber].track.id}/>}
         </div>
     )
 };

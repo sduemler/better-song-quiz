@@ -14,7 +14,7 @@ const Playlists = ({ token }) => {
 
     return (
       <div>
-        <h1>Spotify Playlist</h1>
+        <h1>Spotify Playlists</h1>
         <div>
           {(playlists.decades === undefined) ? "Loading..." : 
                 playlists.decades.map(decade => (

@@ -21,8 +21,7 @@ function App() {
   return <>
     <div>
       <Header />
-      {token === '' ? <Login /> : <WebPlayback token={token} />}
-      <Playlists token={token} />
+      {token === '' ? <Login /> : <Playlists token={token} />}
     </div>
   
   </>;
