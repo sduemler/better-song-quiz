@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import PlaylistCard from './PlaylistCard';
 import axios from 'axios';
 
 
 const Playlists = ({ playlistId, token }) => {
+    const [playlists, setPlaylists] = useState([]);
     const [tracks, setTracks] = useState([]);
     const [images, setImages] = useState([]);
     const [name, setName] = useState([]);
+    let selected = false;
+    let trackNumber = -1;
+    let trackInfo = "";
   
     useEffect(() => {
       const fetchPlaylist = async () => {
@@ -22,31 +27,32 @@ const Playlists = ({ playlistId, token }) => {
           console.error('Error fetching playlist:', error);
         }
       };
+      
+      axios.get("/playlists.json").then((results) => {
+        setPlaylists(results.data.playlists)
+      })
   
       fetchPlaylist();
     }, [playlistId, token]);
-  
+
+    const handleClick = () => {
+      selected = true;
+      trackNumber = Math.floor(Math.random() * 100);
+      trackInfo = tracks[trackNumber].track.name + " - " + tracks[trackNumber].track.artists[0].name;
+      console.log(trackInfo);
+    };
+
     return (
       <div>
         <h1>Spotify Playlist</h1>
-        {/* <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {tracks.map((track, index) => (
-            <div key={index} style={{ margin: '10px' }}>
-              <img
-                src={track.track.album.images[0]?.url}
-                alt={track.track.name}
-                style={{ width: '150px', height: '150px' }}
-              />
-              <p>{track.track.name}</p>
-            </div>
-          ))}
-        </div> */}
         <div>
-            <p>{name}</p>
-            <img 
-            src={images[1]?.url} 
-            style={{ width: '150px', height: '150px'}}
-            />
+          {(playlists.decades === undefined) ? "Loading..." : 
+                playlists.decades.map(decade => (
+                  <div key={decade.id}>
+                    <PlaylistCard token={token} id={decade.id} name={decade.name} image={decade.image} />
+                  </div>
+                ))
+          }
         </div>
       </div>
     );

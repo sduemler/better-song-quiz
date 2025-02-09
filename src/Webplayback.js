@@ -19,9 +19,6 @@ function WebPlayback(props) {
     script.src = 'https://sdk.scdn.co/spotify-player.js';
     script.async = true;
 
-    // const profile = fetchProfile(props.token);
-    // console.log(profile);
-
     document.body.appendChild(script);
 
     window.onSpotifyWebPlaybackSDKReady = () => {

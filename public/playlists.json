@@ -1,0 +1,25 @@
+{
+    "playlists": {
+        "decades": [
+            {
+                "id": "69KEyW3VCrxRi8iJhl2t2g",
+                "name": "Eighties",
+                "image": "/images/80s.jpg"
+            },
+            {
+                "id": "3GLKuISUvZjqh91GhKF8tu",
+                "name": "Nineties",
+                "image": "/images/90s.jpeg"
+            }
+        ],
+        "genres": {
+
+        },
+        "special": {
+
+        },
+        "bands": {
+            
+        }
+    }
+}

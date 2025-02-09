@@ -22,7 +22,7 @@ function App() {
     <div>
       <Header />
       {token === '' ? <Login /> : <WebPlayback token={token} />}
-      <Playlists playlistId={"69KEyW3VCrxRi8iJhl2t2g"} token={token} />
+      <Playlists playlistId={"3GLKuISUvZjqh91GhKF8tu"} token={token} />
     </div>
   
   </>;
